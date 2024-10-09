@@ -1,13 +1,13 @@
 import React from 'react';
 import ContactList from './ContactList';
-import { getData } from './data'
+import { getData } from '../utils/data'
 
 function ContactApp() {
-    const contact = getData()
+    const contacts = getData()
     return (
         <div className="contact-app">
             <h1>Daftar Kontak</h1>
-            < ContactList contact={contact} />
+            < ContactList contacts={contacts} />
         </div>
     )
 }

@@ -10,15 +10,15 @@ const getData = () => {
             id: '2',
             name: 'Ucup',
             tag: 'Ucup Markucup',
-            images: '/images/rfajri27.jpeg'
+            imageUrl: '/images/rfajri27.jpeg'
         },
         {
             id: 'Otong',
             name: 'Otong',
             tag: 'Otong Surotong',
-            imageUrl: 'images/dimasmds.jpeg'
+            imageUrl: '/images/dimasmds.jpeg'
         }
-    ]
+    ];
 }
 
 export { getData};
