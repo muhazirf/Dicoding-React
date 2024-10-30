@@ -3,7 +3,7 @@ import NotesItemBody from './NotesItemBody';
 import DeleteButton from './DeleteButton';
 import ArchiveButton from './ArchiveButton';
 
-function NotesItem({ id, title, body, color, createdAt, onDelete, onArchive }) { // Add id to the props
+function NotesItem({ id, title, body, color, archived, createdAt, onDelete, onArchive }) { // Add id to the props
     return (
         <div className={`w-full h-64 flex flex-col justify-between dark:border-gray-700 rounded-lg border border-gray-400 mb-6 py-5 px-4 
             ${color === 'white'
@@ -26,7 +26,7 @@ function NotesItem({ id, title, body, color, createdAt, onDelete, onArchive }) {
                 </div>
                 <div className='grid grid-cols-2 gap-x-2'>
                     <DeleteButton onDelete={() => onDelete(id)} />
-                    <ArchiveButton onArchive={() => onArchive(id)} />
+                    <ArchiveButton onArchive={() => onArchive(id)} archived={archived} />
                 </div>
             </div>
         </div>

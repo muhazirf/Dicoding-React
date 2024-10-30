@@ -6,7 +6,7 @@ class NotesInput extends React.Component {
         this.state = {
             title: '',
             body: '',
-            color: 'bg-white dark:bg-gray-800',
+            color: 'white',
             archived: false,
             createdAt: new Date().getTime(),
             titleLimit: 50,

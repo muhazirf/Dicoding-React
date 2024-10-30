@@ -1,6 +1,7 @@
 import React from 'react';
 import '../style/App.css';
 import { TabComponent } from './TabComponent';
+import { getInitialData } from '../utils/index';
 import HeaderApp from '../layout/HeaderApp';
 import NotesInput from './NotesInput';
 import NotesList from './NotesList';
@@ -9,9 +10,10 @@ import SearchInput from './SearchInput';
 class NotesApp extends React.Component {
   constructor(props) {
     super(props);
+    const localStorageNotes = JSON.parse(localStorage.getItem('notes')) || []; // Check only localStorage
     this.state = {
-      //cache notes
-      notes: JSON.parse(localStorage.getItem('notes')) || [],
+      localStorageNotes,
+      notes: localStorageNotes.length ? localStorageNotes : getInitialData(), // Use getData() only if localStorageNotes is empty
       archivedNotes: parseInt(localStorage.getItem('archivedNotes')) || 0,
       selectedTab: 'active', // add state to track selected tab
       searchQuery: '', // add state to track search query
@@ -43,7 +45,7 @@ class NotesApp extends React.Component {
             body,
             color,
             archived: false,
-            createdAt: new Date().getTime(),
+            createdAt: new Date().toISOString(),
           },
         ],
       };
